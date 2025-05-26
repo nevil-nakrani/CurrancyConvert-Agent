@@ -25,9 +25,7 @@ def convert(base_currency_value: int, conversion_rate: Annotated[float, Injected
   given a currency conversion rate this function calculates the target currency value from a given base currency value
   """
   return base_currency_value * conversion_rate
-# print(conversation_factor.invoke({"base_currency": "USD", "target_currency": "INR"}))
 
-# Initialize the Google Generative AI model
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
 
 llm_with_tools = llm.bind_tools([conversation_factor, convert])
